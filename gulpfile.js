@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
   sass = require('gulp-sass'),
-  pug = require('gulp-pug'),
   watch = require('gulp-watch'),
   connect = require('gulp-connect'),
   files = ['_css/**/*.sass', 'index.html', 'css/*.css'];
@@ -18,7 +17,7 @@ gulp.task('sass', function(){
   return gulp.src(files[0])
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(gulp.dest('css/'))
-    .pipe(livereload());
+    .pipe(connect.reload());
 });
 
 gulp.task('watch', function(){
